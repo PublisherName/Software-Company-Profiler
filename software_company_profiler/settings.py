@@ -1,4 +1,4 @@
-# Scrapy settings for nepalyp_scraper project
+# Scrapy settings for software_company_profiler project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,28 +7,25 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "nepalyp_scraper"
+BOT_NAME = "software_company_profiler"
 
-SPIDER_MODULES = ["nepalyp_scraper.spiders"]
-NEWSPIDER_MODULE = "nepalyp_scraper.spiders"
+SPIDER_MODULES = ["software_company_profiler.spiders"]
+NEWSPIDER_MODULE = "software_company_profiler.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "nepalyp_scraper (+http://www.yourdomain.com)"
+# USER_AGENT = "software_company_profiler (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-# Duplicate filter class to use for the request
-DUPEFILTER_CLASS = "scrapy.dupefilters.RFPDupeFilter"
-
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 16
+CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 2
+DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 # CONCURRENT_REQUESTS_PER_DOMAIN = 16
 # CONCURRENT_REQUESTS_PER_IP = 16
@@ -48,13 +45,13 @@ DOWNLOAD_DELAY = 2
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    "nepalyp_scraper.middlewares.NepalypScraperSpiderMiddleware": 543,
+#    "software_company_profiler.middlewares.SoftwareCompanyProfilerSpiderMiddleware": 543,
 # }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    "nepalyp_scraper.middlewares.NepalypScraperDownloaderMiddleware": 543,
+#    "software_company_profiler.middlewares.SoftwareCompanyProfilerDownloaderMiddleware": 543,
 # }
 
 # Enable or disable extensions
@@ -66,7 +63,7 @@ DOWNLOAD_DELAY = 2
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "nepalyp_scraper.pipelines.NepalypScraperPipeline": 300,
+    "software_company_profiler.pipelines.SoftwareCompanyProfilerPipeline": 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -93,4 +90,13 @@ ITEM_PIPELINES = {
 # Set settings whose default value is deprecated to a future-proof value
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
-FEED_EXPORT_FIELDS = ["name", "address", "city", "phone", "website", "career_page", "linkedin"]
+FEED_EXPORT_FIELDS = [
+    "name",
+    "address",
+    "city",
+    "phone",
+    "email",
+    "website",
+    "career_page",
+    "linkedin",
+]

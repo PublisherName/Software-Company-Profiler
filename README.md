@@ -24,15 +24,12 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-6. Cd into the <scraper> directory
-```bash
-cd <scraper>
-```
-7. Run the following command to start the web scraper:
+
+6. Run the following command to start the web scraper:
 ```bash
 scrapy crawl <scraper> -o <filename> -a url="<url_to_scrape>"
 ```
-8. To manually populate the data, run the following command:
+7. To manually populate the data, run the following command:
 ```bash
 python main.py <option> --file <file_name>
 ```
@@ -54,10 +51,15 @@ options:
 ## 1. [NepalYP](https://www.nepalyp.com/)
 
 ### Usage:
-```bash
-cd nepalyp_scraper
-```
 
 ```bash
-scrapy crawl nepalyp -o software.csv -a url="https://www.nepalyp.com/category/Software_applications"
+scrapy crawl nepalyp -o nepalyp.csv -a url="https://www.nepalyp.com/category/Software_applications"
+```
+
+## 2. [Techbehemoths](https://techbehemoths.com/)
+
+### Usage:
+
+```bash
+scrapy crawl techbehemoths -o techbehemoths.csv -a url="https://techbehemoths.com/companies/nepal"
 ```

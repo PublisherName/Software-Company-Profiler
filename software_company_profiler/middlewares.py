@@ -7,7 +7,7 @@
 from scrapy import signals
 
 
-class NepalypScraperSpiderMiddleware:
+class SoftwareCompanyProfilerSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -43,7 +43,7 @@ class NepalypScraperSpiderMiddleware:
         pass
 
     @staticmethod
-    def process_start_requests(self, start_requests, spider):
+    def process_start_requests(start_requests, spider):
         # Called with the start requests of the spider, and works
         # similarly to the process_spider_output() method, except
         # that it doesn’t have a response associated.
@@ -56,7 +56,7 @@ class NepalypScraperSpiderMiddleware:
         spider.logger.info("Spider opened: %s" % spider.name)
 
 
-class NepalypScraperDownloaderMiddleware:
+class SoftwareCompanyProfilerDownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -91,7 +91,8 @@ class NepalypScraperDownloaderMiddleware:
         # - or raise IgnoreRequest
         return response
 
-    def process_exception(self, request, exception, spider):
+    @staticmethod
+    def process_exception(request, exception, spider):
         # Called when a download handler or a process_request()
         # (from other downloader middleware) raises an exception.
 

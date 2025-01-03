@@ -6,7 +6,7 @@
 from scrapy import Field, Item
 
 
-class NepalypScraperItem(Item):
+class SoftwareCompanyProfilerItem(Item):
     name = Field()
     address = Field()
     city = Field()

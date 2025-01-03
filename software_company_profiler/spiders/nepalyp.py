@@ -3,7 +3,7 @@ from urllib.parse import urljoin
 
 import scrapy
 
-from ..items import NepalypScraperItem
+from ..items import SoftwareCompanyProfilerItem
 
 
 class NepalypSpider(scrapy.Spider):
@@ -63,7 +63,7 @@ class NepalypSpider(scrapy.Spider):
 
     def parse_profile(self, response):
         """Extract detailed company information from the profile page."""
-        item = NepalypScraperItem()
+        item = SoftwareCompanyProfilerItem()
         item["name"] = response.meta.get("name", "")
         json_ld = response.css('script[type="application/ld+json"]::text').get()
 
@@ -73,6 +73,7 @@ class NepalypSpider(scrapy.Spider):
                 item["address"] = data.get("address", {}).get("streetAddress", "")
                 item["city"] = data.get("address", {}).get("addressLocality", "")
                 item["phone"] = data.get("telephone", "")
+                item["email"] = data.get("email", "")
                 item["website"] = data.get("url", "")
                 item["career_page"] = data.get("career_page", "")
                 item["linkedin"] = data.get("linkedIn", "")
